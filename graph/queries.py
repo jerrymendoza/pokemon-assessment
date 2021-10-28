@@ -15,6 +15,7 @@ def count_name_regex_match(regex_string) -> dict:
     result = endpoint(query=query)
     return result
 
+
 def count_interbreed_species(name_pokemon) -> dict:
     """Return how many species can interbreed with given pokemon name."""
     query = Operation(pokeapi.query_root)
@@ -30,5 +31,25 @@ def count_interbreed_species(name_pokemon) -> dict:
         }
     }
     query.pokemon_v2_pokemonspecies_aggregate(where=condition).aggregate.count()
+    result = endpoint(query=query)
+    return result
+
+
+def get_maxmin_weight_of_type_1gen(pokemon_type) -> dict:
+    """Return max and min of given characteristic and type pokemon, 1st gen."""
+    query = Operation(pokeapi.query_root)
+    condition = {
+        "_and": [
+            {"id": {"_lte": 151}},
+            {
+                "pokemon_v2_pokemontypes": {
+                    "pokemon_v2_type": {"name": {"_eq": pokemon_type}}
+                }
+            },
+        ]
+    }
+    pokemons = query.pokemon_v2_pokemon_aggregate(where=condition)
+    pokemons.aggregate.max.weight()
+    pokemons.aggregate.min.weight()
     result = endpoint(query=query)
     return result

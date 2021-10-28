@@ -34,3 +34,9 @@ def max_min_weight_fighting_gen1() -> list[int]:
     """Get max and min weight of pokemon fighting type, 1st Gen only."""
     result = get_maxmin_weight_of_type_1gen('fighting')
     return list(utils.get_two_deepest_values_on_nested_dicts(result))
+
+
+if __name__ == "__main__":
+    print('P1:', count_names_at_and_2a())
+    print('P2:', n_interbreed_species_raichu())
+    print('P3:', max_min_weight_fighting_gen1())

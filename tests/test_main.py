@@ -1,7 +1,7 @@
 '''
 Tests assessment answers
 '''
-from main import count_names_at_and_2a, n_interbreed_species_raichu, max_min_weight_1st_gen
+from main import count_names_at_and_2a, n_interbreed_species_raichu, max_min_weight_fighting_gen1
 
 
 def test_count_names_at_and_2a():
@@ -22,12 +22,12 @@ def test_type_n_interbreed_species_raichu():
 
 def test_max_min_weight_1st_gen():
     ''' Check Answer to question 3 '''
-    assert max_min_weight_1st_gen() == [1300, 195]
+    assert max_min_weight_fighting_gen1() == [1300, 195]
 
 def test_type_max_min_weight_1st_gen():
     ''' Check Type Answer to question 1 '''
-    assert isinstance(max_min_weight_1st_gen(), list)
+    assert isinstance(max_min_weight_fighting_gen1(), list)
 
 def test_length_max_min_weight_1st_gen():
     ''' Check Length Answer to question 1 '''
-    assert len(max_min_weight_1st_gen()) == 2
+    assert len(max_min_weight_fighting_gen1()) == 2

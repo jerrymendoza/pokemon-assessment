@@ -9,11 +9,14 @@
     Tu respuesta debe ser una lista con el siguiente formato: [1234, 12], en donde 1234 corresponde al máximo peso y 12 al mínimo.
 '''
 
-
-
+from graph.queries import count_name_regex_match
+import utils
 def count_names_at_and_2a() -> int:
     ''' Count how many pokemon have "at" and two "a" in their name. '''
-    pass
+    condition_regex_string = "(?=.*(at).*)(.*(a).*){2}"
+    result = count_name_regex_match(condition_regex_string)
+    return utils.get_last_value_on_nested_dicts(result)
+    
 
 def n_interbreed_species_raichu() -> int:
     ''' Cound how many species can interbreed with raichu '''
